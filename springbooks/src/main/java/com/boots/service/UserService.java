@@ -24,8 +24,8 @@ public class UserService implements UserDetailsService {
     private EntityManager em;
     @Autowired
     UserRepository userRepository;
-   /* @Autowired
-    RoleRepository roleRepository;*/
+    @Autowired
+    RoleRepository roleRepository;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -39,6 +39,16 @@ public class UserService implements UserDetailsService {
 
         return user;
     }
+
+    public User findUserById(Long userId) {
+        Optional<User> userFromDb = userRepository.findById(userId);
+        return userFromDb.orElse(new User());
+    }
+
+    public List<User> allUsers() {
+        return userRepository.findAll();
+    }
+
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
@@ -51,16 +61,6 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
         return true;
     }
-
-    public User findUserById(Long userId) {
-        Optional<User> userFromDb = userRepository.findById(userId);
-        return userFromDb.orElse(new User());
-    }
-
-    public List<User> allUsers() {
-        return userRepository.findAll();
-    }
-
 
     public boolean deleteUser(Long userId) {
         if (userRepository.findById(userId).isPresent()) {

@@ -1016,52 +1016,56 @@ SELECT|sys.sys_config
       <Position>3</Position>
       <DataType>date|0s</DataType>
     </column>
-    <key id="311" parent="289" name="PRIMARY">
+    <column id="311" parent="289" name="user_id">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <key id="312" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="312" parent="290" name="ID">
+    <column id="313" parent="290" name="ID">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="313" parent="290" name="USER_ID">
+    <column id="314" parent="290" name="USER_ID">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="314" parent="290" name="ROLE_ID">
+    <column id="315" parent="290" name="ROLE_ID">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="315" parent="290" name="USER_ROLE_UK">
+    <index id="316" parent="290" name="USER_ROLE_UK">
       <ColNames>USER_ID
 ROLE_ID</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="316" parent="290" name="USER_ROLE_FK2">
+    <index id="317" parent="290" name="USER_ROLE_FK2">
       <ColNames>ROLE_ID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="317" parent="290" name="PRIMARY">
+    <key id="318" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="318" parent="290" name="USER_ROLE_UK">
+    <key id="319" parent="290" name="USER_ROLE_UK">
       <ColNames>USER_ID
 ROLE_ID</ColNames>
       <UnderlyingIndexName>USER_ROLE_UK</UnderlyingIndexName>
     </key>
-    <foreign-key id="319" parent="290" name="USER_ROLE_FK1">
+    <foreign-key id="320" parent="290" name="USER_ROLE_FK1">
       <ColNames>USER_ID</ColNames>
       <RefTableName>app_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="320" parent="290" name="USER_ROLE_FK2">
+    <foreign-key id="321" parent="290" name="USER_ROLE_FK2">
       <ColNames>ROLE_ID</ColNames>
       <RefTableName>app_role</RefTableName>
       <RefColNames>ROLE_ID</RefColNames>
